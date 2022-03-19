@@ -22,7 +22,7 @@ function Slider(){
                                     <h2>Roteiros incríveis! </h2>
                                     <p>Confira nossos pacotes.</p>
                             </div>
-                            <img class="d-block w-100" src="img/passeio-do-casal.jpg " alt="Segundo Slide"/>
+                            <img class="d-block w-100" src="img/viagem-do-casal.jpg " alt="Segundo Slide"/>
                         </div>
                         <div class="carousel-item ">
                             <div class="carousel-caption d-none d-md-block">

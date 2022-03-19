@@ -38,9 +38,10 @@ export default function Index() {
 
     <>
       <header className="header">
+        
         <h1 className="container">Cadastro </h1>
       </header>
-      <div className="container p-5">
+      <div className="container p-5 bg-image">
         <Link to="/cadastro-Create" className="btn btn-primary mb-2">
           Criar Cadastro
         </Link>

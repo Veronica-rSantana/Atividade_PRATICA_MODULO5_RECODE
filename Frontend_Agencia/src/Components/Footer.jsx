@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function Footer() {
-    return (
-        <>
+    return (        
             
                 <footer className="estilo">
                     <div className="contato">
@@ -30,6 +29,6 @@ export default function Footer() {
                     </div>
                 </footer>
             
-        </>
+        
     );
 }
