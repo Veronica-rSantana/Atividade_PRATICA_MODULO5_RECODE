@@ -1,0 +1,12 @@
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriverDB localhost SQLServer
+spring.datasource.url=jdbc:sqlserver://DESKTOP-NE;databaseName=Bookstore3;integratedSecurity=trueDB remoto SQLServer ${DATABASE_URL}
+
+spring.datasource.username=${DB_user}.datasource.password=${DB_password}
+
+
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true

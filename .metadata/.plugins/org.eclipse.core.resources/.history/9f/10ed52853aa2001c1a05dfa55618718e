@@ -1,0 +1,75 @@
+package com.site.siteagencia.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.site.siteagencia.entities.cadastro;
+import com.site.siteagencia.repositorys.cadastroRepository;
+
+@RestController
+@RequestMapping("/cadastros")
+public class cadastroController {
+	
+	@Autowired
+	private cadastroRepository cadastroRepository;
+	
+	//List
+	@GetMapping("/cadastros")
+	public ResponseEntity<List<cadastro>> findAll(){
+		List<cadastro> cadastros =cadastroRepository.findAll();
+		
+		return ResponseEntity.ok().body(cadastros);
+	}	
+	@GetMapping("/{id}")
+	public ResponseEntity<cadastro> findbyId(@PathVariable Long id){
+		cadastro cadastro = cadastroRepository.findById(id).get();
+		
+		return ResponseEntity.ok().body(cadastro);		
+	}
+	//Create
+	@PostMapping
+    public cadastro create(@RequestBody cadastro cadastro) {
+    	
+        return cadastroRepository.save(cadastro);
+    }
+	//Update
+    @PutMapping("{id}")
+    public ResponseEntity<cadastro> update(@PathVariable long id,@RequestBody cadastro cadastroDetails) {
+    	cadastro updatecadastro = cadastroRepository.findById(id).get();
+
+    	updatecadastro.setNome(cadastroDetails.getNome());
+    	updatecadastro.setCpf(cadastroDetails.getCpf());
+    	updatecadastro.setEmail(cadastroDetails.getEmail());
+    	updatecadastro.setTelefone(cadastroDetails.getTelefone());
+    	updatecadastro.setCidade(cadastroDetails.getCidade());
+    	updatecadastro.setEstado(cadastroDetails.getEstado());
+
+        cadastroRepository.save(updatecadastro);
+
+        return ResponseEntity.ok(updatecadastro);
+    }
+    //Delete
+    @DeleteMapping("{id}")
+    public ResponseEntity<HttpStatus> delete(@PathVariable long id) {
+
+    	cadastro cadastro = cadastroRepository.findById(id).get();
+
+    	cadastroRepository.delete(cadastro);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+    }
+
+
+}

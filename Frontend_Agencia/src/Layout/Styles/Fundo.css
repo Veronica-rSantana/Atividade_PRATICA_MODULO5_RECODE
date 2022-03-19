@@ -1,0 +1,26 @@
+.fundo{
+    background-image: url(../BackgroundP.jpg); 
+    text-align: center;   
+    color: rgb(253, 253, 246);
+    padding: 20px;
+    background-size: cover;
+}
+
+/*-------------------------------------MEDIA QUERY-------------------------------------------------------*/
+@media(max-width:768px){
+    .fundo{
+        width: 100%;
+    }
+}
+
+@media(max-width:560px){
+    .fundo{
+        width: 100%;
+    }
+    @media(max-width:320px){
+        .fundo{
+            width: 100%;
+        }
+    }
+}
+

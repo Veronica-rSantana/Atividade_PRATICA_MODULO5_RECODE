@@ -1,0 +1,70 @@
+package com.site.siteagencia.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.site.siteagencia.entities.destino;
+import com.site.siteagencia.repositorys.destinoRepository;
+
+@RestController
+@RequestMapping("/destino")
+public class destinoController {
+	
+	@Autowired
+	private destinoRepository destinoRepository;
+	@GetMapping("/destino")
+	public ResponseEntity<List<destino>> findAll(){
+		List<destino> destinos =destinoRepository.findAll();
+		
+		return ResponseEntity.ok().body(destinos);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<destino> findbyId(@PathVariable Long id){
+		
+		destino destino = destinoRepository.findById(id).get();
+		
+		return ResponseEntity.ok().body(destino);	
+	}
+	//Create
+		@PostMapping
+	    public destino create(@RequestBody destino destino) {
+	    	
+	        return destinoRepository.save(destino);
+	    }
+		//Update
+	    @PutMapping("{id}")
+	    public ResponseEntity<destino> update(@PathVariable long id,@RequestBody destino destinoDetails) {
+	    	destino updatedestino = destinoRepository.findById(id).get();
+
+	    	updatedestino.setCidade_destino(destinoDetails.getCidade_destino());
+	    	updatedestino.setEstado_destino(destinoDetails.getEstado_destino());
+	    	
+	        destinoRepository.save(updatedestino);
+
+	        return ResponseEntity.ok(updatedestino);
+	    }
+	    //Delete
+	    @DeleteMapping("{id}")
+	    public ResponseEntity<HttpStatus> delete(@PathVariable long id) {
+
+	    	destino destino = destinoRepository.findById(id).get();
+
+	    	destinoRepository.delete(destino);
+
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+	    }
+
+}

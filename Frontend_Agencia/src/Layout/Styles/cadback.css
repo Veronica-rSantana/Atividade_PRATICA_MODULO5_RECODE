@@ -1,0 +1,11 @@
+.cadback{
+    background-image: url("../BackgroundP.jpg");
+    text-align: center;
+    padding: 20px 0px;
+    background-size: cover;
+    
+}
+.cad{
+    color: rgb(12, 12, 12);
+    text-align: left;
+}

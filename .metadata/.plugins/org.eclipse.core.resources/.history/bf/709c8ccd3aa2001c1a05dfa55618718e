@@ -1,0 +1,28 @@
+package com.site.siteagencia;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.site.siteagencia.entities.cadastro;
+import com.site.siteagencia.repositorys.CadastroRepository;
+
+import com.site.siteagencia.entities.destino;
+import com.site.siteagencia.repositorys.destinoRepository;
+
+import com.site.siteagencia.entities.passagens;
+import com.site.siteagencia.repositorys.passagemRepository;
+
+@SpringBootApplication
+public class SiteagenciaApplication  {
+	
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SiteagenciaApplication.class, args);
+	}
+
+	
+		 
+}

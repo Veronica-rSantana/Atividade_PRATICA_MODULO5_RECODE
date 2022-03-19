@@ -1,0 +1,44 @@
+.topo{
+    background-color: rgb(255, 230, 0);
+    width: 100%;
+    height:auto;
+    display: flex; 
+    text-align: left; 
+    text-decoration: none;
+    font-family: Serb Neue;
+    color:bold;
+}
+.menu{
+    
+    padding: 30px;
+    width: 80%;
+    height:30px;
+    display: flex; 
+    text-align: center; 
+    text-decoration: none;
+    font-family: Serb Neue;
+    display: flex;
+    justify-content: center;
+    color:bold;
+    align-items: center;
+    height: 10px;
+    margin-top: 5%;
+    margin-left: 8%; 
+    border-radius: 2%; 
+    align-items: center;   
+}
+.style{
+    margin-top: 0%;
+    width:200px; 
+    height: 80px;  
+}
+
+
+@media(max-width:560px){
+    .lo{
+        width: 90%;
+        padding: 30px;  
+        text-align: center; 
+    }
+    
+}
